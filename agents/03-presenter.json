@@ -1,0 +1,13 @@
+{
+  "name": "JobPresenterAgent",
+  "description": "Formats scored jobs for Tinder-style swipe UI and stores them in Supabase",
+  "version": "1.0.0",
+  "inputs": ["scored_jobs[]"],
+  "outputs": ["stored_jobs[]"],
+  "actions": [
+    "upsert to Supabase (on conflict: source, source_id)",
+    "sort by score descending",
+    "format for card display (title, company, salary, badges)",
+    "track decision state (new/saved/dismissed)"
+  ]
+}

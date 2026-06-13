@@ -1,0 +1,21 @@
+{
+  "name": "JobFilterAgent",
+  "description": "Scores and filters jobs based on user preferences, deduplicates by source+source_id",
+  "version": "1.0.0",
+  "inputs": ["raw_jobs[]", "preferences"],
+  "outputs": ["scored_jobs[]"],
+  "scoring_rules": [
+    { "rule": "salary_above_minimum", "points": 20 },
+    { "rule": "salary_well_above", "points": 10 },
+    { "rule": "remote_preference_match", "points": 15 },
+    { "rule": "parttime_hours", "points": 15, "range": [8, 32] },
+    { "rule": "fulltime_penalty", "points": -15 },
+    { "rule": "search_term_in_title", "points": 25 },
+    { "rule": "search_term_in_desc", "points": 10 },
+    { "rule": "exclude_keyword_penalty", "points": -30 },
+    { "rule": "location_hoogeveen", "points": 20 },
+    { "rule": "location_drenthe", "points": 10 },
+    { "rule": "preferred_tag", "points": 5 }
+  ],
+  "deduplication": "source + source_id"
+}

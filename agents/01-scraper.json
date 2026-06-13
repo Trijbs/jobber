@@ -1,0 +1,24 @@
+{
+  "name": "JobScraperAgent",
+  "description": "Fetches job listings from Adzuna API and scrapes Werkzoeken.nl for part-time positions in Hoogeveen",
+  "version": "1.0.0",
+  "inputs": ["search_terms", "location", "radius_km"],
+  "outputs": ["raw_jobs[]"],
+  "sources": [
+    {
+      "name": "adzuna",
+      "type": "api",
+      "endpoint": "https://api.adzuna.com/v1/api/jobs/nl/search/1",
+      "auth": "app_id + app_key",
+      "rate_limit": "generous"
+    },
+    {
+      "name": "werkzoeken",
+      "type": "scraper",
+      "url": "https://www.werkzoeken.nl/vacatures",
+      "parser": "cheerio"
+    }
+  ],
+  "schedule": "0 6 * * *",
+  "manual_trigger": true
+}

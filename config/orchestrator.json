@@ -1,0 +1,16 @@
+{
+  "name": "jobber",
+  "version": "1.0.0",
+  "description": "Part-time job research system for Hoogeveen, Netherlands",
+  "agents": [
+    "01-scraper.json",
+    "02-filter.json",
+    "03-presenter.json"
+  ],
+  "phases": {
+    "1": "Scrape Adzuna + Werkzoeken",
+    "2": "Score and filter by preferences",
+    "3": "Store and present in Tinder UI"
+  },
+  "schedule": "Daily at 06:00 CET + manual trigger"
+}

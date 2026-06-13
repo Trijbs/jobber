@@ -1,0 +1,15 @@
+{
+  "name": "jobber",
+  "version": "1.0.0",
+  "description": "Part-time job research system for Hoogeveen, Netherlands",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "setup-db": "node scripts/setup-db.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.0",
+    "cheerio": "^1.0.0",
+    "dotenv": "^17.4.2"
+  }
+}
